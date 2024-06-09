@@ -5,7 +5,7 @@
   > Serial communication between a computer with python and an arduino through the firmata protocol.
   > The pinpong library is able to install required firmware into an arduino board on its own.
   > You can solve the main logic in python, not in C, wiring or assembler. 
-  >  
+  >
 - **HW installation**
   > Simply connect arduino board and a computer with USB cabel. OS recognizes new com port.
   > If doesn't there is probably any problem with drivers.
@@ -69,6 +69,15 @@
   > In case of normal python console it is finished and you are then in a terminal.
   >
   > In case of ipython console it is not finished and due to it I like it more too.
+  >
+  > Inspect the code of the example. To see the path of the examples directory try this:
+  ```
+  >>> import pinpong
+  >>> pinpong
+  <module 'pinpong' from 'C:\\Users\\vysok\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\pinpong\\__init__.py'>
+  >>>
+  ```
+  > In windows it is obscure...
   > 
 - using button I
 - using button II
