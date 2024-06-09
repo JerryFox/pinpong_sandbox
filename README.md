@@ -58,7 +58,13 @@
   All right. PinPong go...
   ------------------------------
   ```
-
+  > This example like any realtime application works in endless loop.
+  > To end the loop you must press `ctrl + c`.
+  >
+  > In case of normal python console it is finished and you are then in a terminal.
+  >
+  > In case of ipython console it is not finished and due to it I like it more too.
+  > 
 - using button I
 - using button II
 - blinkink without delay
