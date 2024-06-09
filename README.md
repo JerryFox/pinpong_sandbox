@@ -1,6 +1,11 @@
 # pinpong_sandbox
 ## playing with arduino and pinpong python module
 
+- **basic principle**
+  > Serial communication between a computer with python and an arduino through the firmata protocol.
+  > The pinpong library is able to install required firmware into an arduino board on its own.
+  > You can solve the main logic in python, not in C, wiring or assembler. 
+  >  
 - **HW installation**
   > Simply connect arduino board and a computer with USB cabel. OS recognizes new com port.
   > If doesn't there is probably any problem with drivers.
