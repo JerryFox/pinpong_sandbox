@@ -12,7 +12,7 @@
   >
   > *buttons*
   >
-  > I am using non mechanical touch modules in my examples. If you can use normal mechanical buttons you must remember using
+  > I am using non mechanical touch modules in my examples. If you want to use normal mechanical buttons you must remember using
   > internal or external pulldown or [pullup resistor][1].
   >
   > [1]: <https://en.wikipedia.org/wiki/Pull-up_resistor> "pullup resistor"
