@@ -22,6 +22,10 @@
   >
   > [1]: <https://en.wikipedia.org/wiki/Pull-up_resistor> "pullup resistor"
   >
+  > <img src="arduino.jpg" width="300" height="400" />
+  >
+  > There is an arduino uno with 8-port touch module in the picture.
+  > Output 7 is connected to arduino pin 7. 
   
 - **SW installation**
 
