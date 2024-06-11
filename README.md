@@ -166,7 +166,6 @@
   > but again nothing special. 
   >
   >[5]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/blink_without_sleep_glob.py> 
-  >[6]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/blink_without_sleep_dict.py> 
   >
   ```
   from pinpong.board import Board,Pin
@@ -205,5 +204,11 @@
 - **using OOP advantages**
   > In [Object-oriented programing][7] are using objects in which are stored data (properties) and functions (methods)
   > together. It is suitable for us.
+  >
+  > See [led_but.py][8].
+  >
+  > The example works, the Led class is quite well I hope but the Button class is not complete - an idea only.
+  > I am working on it
   > 
   > [7]: <https://en.wikipedia.org/wiki/Object-oriented_programming>
+  > [8]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/led_but.py> 
