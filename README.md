@@ -203,4 +203,7 @@
   >
   >
 - **using OOP advantages**
-
+  > In [Object-oriented programing][7] are using objects in which are stored data (properties) and functions (methods)
+  > together. It is suitable for us.
+  > 
+  > [7]: <https://en.wikipedia.org/wiki/Object-oriented_programming>
