@@ -159,10 +159,10 @@ if __name__ == "__main__":
         pressed = but.get_pressed()
         if pressed: 
             window.addstr(1, 0, str(pressed)+"   ")
+            led.mode = (led.mode + 1) % 3
         released = but.get_released()
         if released: 
             window.addstr(2, 0, str(released)+"   ")
-            led.mode = (led.mode + 1) % 3
             #led.mode = (led.mode + 1) % 3
 
     wrapper(main, loop=loop)
