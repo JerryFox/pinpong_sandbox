@@ -149,7 +149,7 @@
   >
   > In this case the led status changes on the button press. Try to change the code to switch the status on the button release.
   > 
-- **blinkink without delay**
+- **blinking without delay**
   >
   > When you need to blink with a led and test a button value in every moment you can't use a sleep() function
   > because it stops execution of the python code. How to do it?
@@ -157,7 +157,7 @@
   > You have to refresh the led state in the timeline. Imagine that the endless loop is executed many times per second.
   > You have to see if there is the right time to switch the led on or off. 
   >
-  > I prepared two possible solutions. One is [blink_without_sleep_glob.py][5] with a function for blinkink
+  > I prepared two possible solutions. One is [blink_without_sleep_glob.py][5] with a function for blinking
   > and global variables. This solution is IMHO very ugly. Imagine you need to manage more leds and/or buttons.
   > This vision is horrible.
   >
