@@ -39,7 +39,7 @@
   >
   > `python -m IPython`
 
-- first test
+- **first test**
   
   > in python console write:
   >
@@ -83,8 +83,123 @@
   ```
   > In windows it is obscure...
   > 
-- using button I
-- using button II
-- blinkink without delay
-- using OOP advantages
+- **using button I**
+  >
+  > see [button_I.py][2]
+  >
+  > [2]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/button_I.py> 
+  >
+  ```
+  from pinpong.board import Board,Pin
+  b = Board("uno").begin()
+  led = Pin(13, Pin.OUT)
+  but = Pin(7, Pin.IN)
+  while True:
+      val = but.value()
+      led.value(val)
+      print(val)
+  ```
+  >
+  > But why too many outputs?!
+  >
+
+  
+- **using button II**
+  >
+  > see [button_II.py][3]
+  >
+  > [3]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/button_II.py> 
+  >
+  ```
+  from pinpong.board import Board,Pin
+  b = Board("uno").begin()
+  led = Pin(13, Pin.OUT)
+  but = Pin(7, Pin.IN)
+  but_status = 0
+  while True:
+      val = but.value()
+      if val != but_status: 
+          led.value(val)
+          print(val)
+          but_status = val
+  ```
+  >
+  > If you can switch the led on every button press make simple changes.
+  >
+  > see [button_IIa.py][4]
+  >
+  > [4]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/button_IIa.py> 
+  >
+  ```
+  from pinpong.board import Board,Pin
+  b = Board("uno").begin()
+  led = Pin(13, Pin.OUT)
+  but = Pin(7, Pin.IN)
+  but_status = 0
+  led_status = 0
+  while True:
+      val = but.value()
+      if val != but_status: 
+          print(val)
+          but_status = val
+          if val: 
+              led_status = not led_status
+              led.value(led_status)
+  ```
+  >
+  > In this case the led status changes on the button press. Try to change the code to switch the status on the button release.
+  > 
+- **blinkink without delay**
+  >
+  > When you need to blink with a led and test a button value in every moment you can't use a sleep() function
+  > because it stops execution of the python code. How to do it?
+  >
+  > You have to refresh the led state in the timeline. Imagine that the endless loop is executed many times per second.
+  > You have to see if there is the right time to switch the led on or off. 
+  >
+  > I prepared two possible solutions. One is [blink_without_sleep_glob.py][5] with a function for blinkink
+  > and global variables. This solution is IMHO very ugly. Imagine you need to manage more leds and/or buttons.
+  > This vision is horrible.
+  >
+  > So so acceptable thanks to python concept of dictionaries is [blink_without_sleep_dict.py][6]
+  > but again nothing special. 
+  >
+  >[5]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/blink_without_sleep_glob.py> 
+  >[6]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/blink_without_sleep_dict.py> 
+  >
+  ```
+  from pinpong.board import Board,Pin
+  import time
+  
+  def blink(l):
+      now_time = time.time()
+      if l["blink_status"]:
+          if (not l["led_status"] and now_time - l["last_change"] > l["blink_off_time"])\
+                or (l["led_status"] and now_time - l["last_change"] > l["blink_on_time"]):
+              l["led_status"] = not l["led_status"] 
+              l["led"].value(l["led_status"])
+              l["last_change"] = now_time
+  
+  b = Board("uno").begin()
+  led1 = {}
+  led1["led"] = Pin(Pin.D13, Pin.OUT)
+  led1["led_status"] = 0
+  led1["blink_on_time"] = 0.2
+  led1["blink_off_time"] = 1
+  led1["last_change"] = 0
+  led1["blink_status"] = True
+  but = Pin(7, Pin.IN)
+  but_status = 0
+  while True:
+      val = but.value()
+      blink(led1)
+      if val != but_status:
+          print(val)
+          but_status = val
+          if val == 1:
+              led1["blink_status"] = not led1["blink_status"]
+  ```
+  >
+  >
+- **using OOP advantages**
 
