@@ -1,11 +1,8 @@
 from pinpong.board import Board,Pin
 import time
 
-#global svitit, nesvitit, sviti, posledni_zmena, blink_stat
-
 def blink(led):
     global blink_on_time, blink_off_time, led_status, last_change, blink_status
-    #print(svitit, nesvitit, sviti, posledni_zmena)
     now_time = time.time()
     if blink_status:
         if (not led_status and now_time - last_change > blink_off_time)\
