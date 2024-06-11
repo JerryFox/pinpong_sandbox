@@ -1,5 +1,6 @@
 # pinpong_sandbox
 ## playing with arduino and pinpong python module
+### LEDs and buttons
 
 - **basic principle**
   > Serial communication between a computer with python and an arduino through the firmata protocol.
