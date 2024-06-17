@@ -165,7 +165,7 @@
   > So so acceptable thanks to python concept of dictionaries is [blink_without_sleep_dict.py][6]
   > but again nothing special. 
   >
-  >[5]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/blink_without_sleep_glob.py> 
+  >[6]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/blink_without_sleep_glob.py> 
   >
   ```
   from pinpong.board import Board,Pin
