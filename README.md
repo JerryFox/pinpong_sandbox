@@ -214,8 +214,50 @@
   > ```pip install windows-curses``` command.
   > The program prints internal time on every whole second, the press time and the release time of the button. 
   >
+  > 
   ```
-  
+  class Led():
+    def __init__(self, port):
+        self.pin = Pin(port, Pin.OUT)
+        self.mode = 0 # 0 - off, 1 - on, 2 - blink
+        self.status = 0 # should be ON or OFF
+        self.number_of_blinks = -1 # < 0 - endless blinkink   
+        self.last_change = 0
+        self.blink_on_time = 0.3
+        self.blink_off_time = 1
+
+    def on(self): 
+        self.pin.value(1)
+        self.status = 1
+
+    def off(self): 
+        self.pin.value(0)
+        self.status = 0
+
+    def blink(self, on_time=0.1, off_time=1, number_of_blinks=-1): 
+        self.status = 0
+        self.number_of_blinks = number_of_blinks
+        self.blink_on_time = on_time
+        self.blink_off_time = off_time
+        self.last_change = time.time()
+
+    def refresh(self): 
+        act_time = time.time()
+        if self.mode == 0: 
+            if self.status: 
+                self.off()
+        elif self.mode == 1: 
+            if not self.status: 
+                self.on()
+        elif self.mode == 2 and self.number_of_blinks: 
+            if self.status and act_time - self.last_change >= self.blink_on_time:
+                self.off()
+                self.last_change = act_time
+                if self.number_of_blinks > 0: 
+                    self.number_of_blinks -= 1
+            elif not self.status and act_time - self.last_change >= self.blink_off_time:
+                self.on()
+                self.last_change = act_time
   ```
   > [7]: <https://en.wikipedia.org/wiki/Object-oriented_programming>
   > [8]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/led_but.py> 
