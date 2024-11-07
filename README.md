@@ -211,7 +211,11 @@
   > It is in progress.
   >
   > In this example I am using curses library due to addressed output to the screen. In windows you have to install it using
-  > ```pip install windows-curses``` command. 
-  > 
+  > ```pip install windows-curses``` command.
+  > The program prints internal time on every whole second, the press time and the release time of the button. 
+  >
+  ```
+  
+  ```
   > [7]: <https://en.wikipedia.org/wiki/Object-oriented_programming>
-  > [8]: <https://github.com/JerryFox/pinpong_sandbox/b¨˘lob/main/led_but.py> 
+  > [8]: <https://github.com/JerryFox/pinpong_sandbox/blob/main/led_but.py> 
